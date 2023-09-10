@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortner</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <h1 class="vibrant-text">URL Shortener</h1>
+    </div>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="inputbox">
+            <span>Paste Your Link</span>
+            <input required="required" type="text" name="full_url">
+            <i></i>
+        </div>
+        <!-- <input type="text" name="full_url"> -->
+        <button>
+            <span class="transition"></span>
+            <span class="gradient"></span>
+            <span class="label">SUBMIT</span>
+        </button>
+        <!-- <button type="submit"><a>SUBMIT</a></button> -->
+        <h3>Full Link -></h3>
+        <p class="Return">
+            {{full_url}}
+        </p>
+        <h3>Shortened Link -></h3>
+        <p class="Return">
+            {{short_url}}
+        </p>
+    </form>
+    <!-- <h1>HELLO EVERYONE</h1> -->
+    <style type="text/css">
+        form{
+            /* background-color: antiquewhite; */
+            position: relative;
+            right: 150px;
+        }
+        body {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            margin: 0;
+            /* background-color:azure; */
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            /* background-color: #23242a; */
+            bottom: 200px;
+            left: 200px;
+            /* margin-bottom: 30px; */
+        }
+        .vibrant-text {
+            font-family: 'Baloo 2', cursive;
+            font-size: 48px;
+            color: #032c33;
+            /* White text color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            /* Add a subtle text shadow for depth */
+            margin-top: 20px;
+            /* Add some top margin to create space between the headline and the top edge */
+        }
+
+        button {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 17px;
+            padding: 1em 2.7em;
+            margin-top: 50px;
+            font-weight: 500;
+            background: #1F2937;
+            color: white;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.6em;
+        }
+
+        .gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border-radius: 0.6em;
+            margin-top: -0.25em;
+            background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+        }
+
+        .label {
+            position: relative;
+            top: -1px;
+        }
+
+        .transition {
+            transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            transition-duration: 500ms;
+            background-color: rgba(16, 185, 129, 0.6);
+            border-radius: 9999px;
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        button:hover .transition {
+            width: 14em;
+            height: 14em;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        .inputbox {
+            position: relative;
+            width: 630px;
+        }
+
+        .inputbox input {
+            position: relative;
+            width: 100%;
+            padding: 20px 10px 10px;
+            background: transparent;
+            outline: none;
+            box-shadow: none;
+            border: none;
+            color: #23242a;
+            font-size: 1em;
+            letter-spacing: 0.05em;
+            transition: 0.5s;
+            z-index: 10;
+        }
+
+        .inputbox span {
+            position: absolute;
+            left: 0;
+            padding: 20px 10px 10px;
+            font-size: 1em;
+            color: #8f8f8f;
+            letter-spacing: 00.05em;
+            transition: 0.5s;
+            pointer-events: none;
+        }
+
+        .inputbox input:valid~span,
+        .inputbox input:focus~span {
+            color: #45f3ff;
+            transform: translateX(-10px) translateY(-34px);
+            font-size: 0, 75em;
+        }
+
+        .inputbox i {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #45f3ff;
+            border-radius: 4px;
+            transition: 0.5s;
+            pointer-events: none;
+            z-index: 9;
+        }
+
+        .inputbox input:valid~i,
+        .inputbox input:focus~i {
+            height: 44px;
+        }
+        h3{
+            margin-top: 50px;
+        }
+    </style>
+</body>
+
+</html>
