@@ -89,8 +89,6 @@ To run this project locally, follow these steps:
 
 5. To access the original URL, simply visit the shortened URL.
 
-6. You can also view statistics for each shortened URL, including the number of times it has been accessed.
-
 ## Contributing
 
 Contributions to this project are welcome. You can contribute by:
